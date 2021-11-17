@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Row } from "../components/Layout";
+import { Row } from "Components/Layout";
 
 const Home = () => (
   <div>
@@ -12,7 +12,7 @@ const Home = () => (
 
     <Row>
       <h3>
-        Hooray 🎉 - you've built this with{" "}
+        Hooray 🎉 - youve built this with{" "}
         <a href="https://nextjs.org">Next.js</a>!
       </h3>
     </Row>
