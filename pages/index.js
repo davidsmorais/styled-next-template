@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Row } from "Components/Layout";
-
+import Timeline from "Components/Timeline";
 const Home = () => (
   <div>
     <Head>
@@ -10,6 +10,7 @@ const Home = () => (
       Next.js on the <a href="https://jamstack.org">Jamstack</a>
     </h1>
 
+    <Timeline />
     <Row>
       <h3>
         Hooray 🎉 - youve built this with{" "}
