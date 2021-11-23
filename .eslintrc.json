@@ -8,5 +8,8 @@
         "module Directory": ["node_modules", "src/"]
       }
     }
+  },
+  "rules": {
+    "import/no-anonymous-default-export": "off"
   }
 }
