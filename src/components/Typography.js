@@ -9,10 +9,14 @@ const Title = styled.h1`
   text-transform: capitalize;
   color: ${({ theme, color }) => theme.colors[color || 'white']};
   ${({ gradient,theme }) => gradient && `
-    background: ${theme.colors[gradient] || theme.colors.titleGradient};
+    background: ${theme.gradients[gradient] || theme.gradients.titleGradient};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   `};
+  ${({ stroke, theme }) => stroke && (
+`    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: ${theme.colors[stroke] || theme.colors.accent};`
+  )};
 `
 
 const Subtitle = styled.h2`
@@ -24,7 +28,7 @@ line-height: 22px;
 text-align: ${props => props.align || 'center'};
 color: ${({ theme, color }) => theme.colors[color || 'white']};
 ${({ gradient,theme }) => gradient && `
-  background: ${theme.colors[gradient] || theme.colors.titleGradient};
+  background: ${theme.gradients[gradient] || theme.gradients.titleGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `};
@@ -39,7 +43,7 @@ line-height: 16px;
 text-align: ${props => props.align || 'center'};
 color: ${({ theme, color }) => theme.colors[color || 'white']};
 ${({ gradient,theme }) => gradient && `
-  background: ${theme.colors[gradient] || theme.colors.titleGradient};
+  background: ${theme.gradients[gradient] || theme.gradients.titleGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `};
@@ -55,7 +59,7 @@ line-height: 16px;
 text-align: ${props => props.align || 'center'};
 color: ${({ theme, color }) => theme.colors[color || 'white']};
 ${({ gradient,theme }) => gradient && `
-  background: ${theme.colors[gradient] || theme.colors.titleGradient};
+  background: ${theme.gradients[gradient] || theme.gradients.titleGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `};
