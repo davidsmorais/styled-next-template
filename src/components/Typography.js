@@ -4,65 +4,100 @@ const Title = styled.h1`
   font-family: OldWizard;
   font-size: 96px;
   line-height: 105px;
-  text-align: ${props => props.align || 'center'};
+  text-align: ${(props) => props.align || 'center'};
   letter-spacing: 4px;
   text-transform: capitalize;
   color: ${({ theme, color }) => theme.colors[color || 'white']};
-  ${({ gradient,theme }) => gradient && `
+  ${({ gradient, theme }) =>
+    gradient &&
+    `
     background: ${theme.gradients[gradient] || theme.gradients.titleGradient};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   `};
-  ${({ stroke, theme }) => stroke && (
-`    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: ${theme.colors[stroke] || theme.colors.accent};`
-  )};
-`
+  ${({ stroke, theme }) =>
+    stroke &&
+    `    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: ${
+      theme.colors[stroke] || theme.colors.accent
+    };`};
+`;
 
 const Subtitle = styled.h2`
-font-family: editundo;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 22px;
-text-align: ${props => props.align || 'center'};
-color: ${({ theme, color }) => theme.colors[color || 'white']};
-${({ gradient,theme }) => gradient && `
+  font-family: editundo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 22px;
+  text-align: ${(props) => props.align || 'center'};
+  color: ${({ theme, color }) => theme.colors[color || 'white']};
+  ${({ gradient, theme }) =>
+    gradient &&
+    `
   background: ${theme.gradients[gradient] || theme.gradients.titleGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `};
-`
+`;
 
 const Heading = styled.h3`
-font-family: editundo;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 16px;
-text-align: ${props => props.align || 'center'};
-color: ${({ theme, color }) => theme.colors[color || 'white']};
-${({ gradient,theme }) => gradient && `
+  font-family: editundo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 16px;
+  text-align: ${(props) => props.align || 'center'};
+  color: ${({ theme, color }) => theme.colors[color || 'white']};
+  ${({ gradient, theme }) =>
+    gradient &&
+    `
   background: ${theme.gradients[gradient] || theme.gradients.titleGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `};
-`
-
+`;
 
 const Body = styled.h3`
-font-family: editundo;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 16px;
-text-align: ${props => props.align || 'center'};
-color: ${({ theme, color }) => theme.colors[color || 'white']};
-${({ gradient,theme }) => gradient && `
+  font-family: editundo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: ${(props) => props.align || 'center'};
+  color: ${({ theme, color }) => theme.colors[color || 'white']};
+  ${({ gradient, theme }) =>
+    gradient &&
+    `
   background: ${theme.gradients[gradient] || theme.gradients.titleGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-`};
-`
+`}
+  &:hover {
+    color: ${({ theme, hoverColor }) =>
+      (hoverColor && theme.colors[hoverColor]) || ''};
+  }
+`;
 
-export default {Body, Heading, Subtitle, Title}
+const Link = ({ as, href, children, color, hoverColor, size, align }) => {
+  const LinkComponent = {
+    Body: <Body />,
+    Heading: <Heading />,
+    Title: <Title />,
+    Subtitle: <Subtitle />,
+  }[as || 'Body'];
+
+  return (
+    <Link prefetch href={href} passHref>
+      <LinkComponent
+        color={color}
+        align={align}
+        hoverColor={hoverColor}
+        size={size}
+      >
+        {children}
+      </LinkComponent>
+    </Link>
+  );
+};
+
+export default { Body, Heading, Subtitle, Title, Link };
