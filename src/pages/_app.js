@@ -1,4 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import Theme from 'Theme'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -18,24 +19,19 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #333;
+    background: ${Theme.gradients.accentGradient}
   }
   h1, h2, h3 {
     font-family: OldWizard;
   }
 `;
 
-const theme = {
-  colors: {
-    primary: "#0070f3",
-  },
-};
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={Theme}>
         <Component {...pageProps} />
       </ThemeProvider>
     </>

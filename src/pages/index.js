@@ -1,7 +1,9 @@
 import Head from "next/head";
 import { Row } from "Components/Layout";
 import Timeline from "Components/Timeline";
-const Home = () => (
+import Theme from 'Theme'
+
+const Home = () => !console.log(Theme) && (
   <div>
     <Head>
       <title>Next.js on the Jamstack with Netlify!</title>

@@ -1,15 +1,6 @@
 {
-  "extends": ["next", "prettier"],
-  "plugins": ["import"],
-  "ignorePatterns": ["**.json"],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "module Directory": ["node_modules", "src/"]
-      }
-    }
-  },
+  "extends": ["eslint:recommended", "next", "prettier"],
   "rules": {
-    "import/no-anonymous-default-export": "off"
+    "no-undef": "error"
   }
 }
