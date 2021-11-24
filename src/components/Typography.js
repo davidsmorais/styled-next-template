@@ -25,7 +25,7 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h2`
-  font-family: editundo;
+  font-family: 'Press Start 2P', cursive;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
@@ -42,7 +42,7 @@ const Subtitle = styled.h2`
 `;
 
 const Heading = styled.h3`
-  font-family: 'editundo';
+  font-family: 'Press Start 2P', cursive;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -59,7 +59,7 @@ const Heading = styled.h3`
 `;
 
 const Body = styled.p`
-  font-family: editundo;
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;

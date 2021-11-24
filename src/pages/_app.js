@@ -1,13 +1,7 @@
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import Theme from 'Theme'
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Theme from 'Theme';
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-  font-family: "editundo";
-  src: url("editundo.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
 @font-face {
   font-family: "OldWizard";
   src: url("OldWizard.ttf") format("truetype");
@@ -21,11 +15,17 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     background: ${Theme.gradients.accentGradient}
   }
-  h1, h2, h3 {
+  h1, h2 {
     font-family: OldWizard;
   }
+  h3, h4 {
+    font-family: 'Press Start 2P', cursive;
+  }
+  a, span,p {
+    font-family:  'Open Sans', sans-serif;
+    text-decoration: none;
+  }
 `;
-
 
 export default function App({ Component, pageProps }) {
   return (
