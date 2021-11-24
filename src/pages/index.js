@@ -8,10 +8,10 @@ import Header from 'Components/Header';
 const Home = () => (
   <div>
     <Head />
-    <Header />
     <Text.Title gradient="titleGradient" stroke="accentAlt">
       Epoch Rift
     </Text.Title>
+    <Header />
     <Timeline />
     <Row background="black" paddingVertical={16}>
       <Icon name="itch.io" size="2em" />

@@ -39,13 +39,19 @@ const Subtitle = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `};
+  &:hover {
+    color: ${({ theme, hoverColor }) =>
+      (hoverColor && theme.colors[hoverColor]) || ''};
+  }
 `;
 
 const Heading = styled.h3`
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   line-height: 16px;
   text-align: ${(props) => props.align || 'center'};
   color: ${({ theme, color }) => theme.colors[color || 'white']};
@@ -56,6 +62,10 @@ const Heading = styled.h3`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `};
+  &:hover {
+    color: ${({ theme, hoverColor }) =>
+      hoverColor && (theme.colors[hoverColor] || '')};
+  }
 `;
 
 const Body = styled.p`
@@ -79,29 +89,33 @@ const Body = styled.p`
   }
 `;
 
+const LinkOverride = styled.span`
+  > * {
+    text-decoration: none;
+    cursor: pointer;
+  }
+`;
+
 const StyledLink = ({ as, href, children, color, hoverColor, size, align }) => {
   const renderLinkComponent = {
-    body: (...props) => <Body {...props} />,
-    heading: (...props) => <Heading {...props}>{children}</Heading>,
-    title: (...props) => <Title {...props} />,
-    subtitle: (...props) => <Subtitle {...props} />,
+    body: (props) => <Body {...props}>{children}</Body>,
+    heading: (props) => <Heading {...props}>{children}</Heading>,
+    title: (props) => <Title {...props}>{children}</Title>,
+    subtitle: (props) => <Subtitle {...props}>{children}</Subtitle>,
   }[as.toLowerCase() || 'Body'];
-  console.log(
-    '🚀 ~ file: Typography.js ~ line 89 ~ StyledLink ~ renderLinkComponent',
-    renderLinkComponent,
-    as
-  );
 
   return (
-    <Link prefetch href={href} passHref>
-      {renderLinkComponent({
-        color,
-        align,
-        hoverColor,
-        size,
-        children,
-      })}
-    </Link>
+    <LinkOverride>
+      <Link prefetch href={href} passHref>
+        {renderLinkComponent({
+          color,
+          align,
+          hoverColor,
+          size,
+          children,
+        })}
+      </Link>
+    </LinkOverride>
   );
 };
 

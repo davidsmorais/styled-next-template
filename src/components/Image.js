@@ -5,6 +5,7 @@ import NextImage from 'next/image';
 import styled from 'styled-components';
 
 const StyledImageContainer = styled.div`
+  min-width: ${({ width }) => width}px;
   > div {
     ${({ theme, borderRadius }) =>
       borderRadius && theme.borderRadius(borderRadius)};
@@ -21,7 +22,11 @@ const Image = ({
   alt,
   children,
 }) => (
-  <StyledImageContainer borderRadius={borderRadius} className={className}>
+  <StyledImageContainer
+    width={width}
+    borderRadius={borderRadius}
+    className={className}
+  >
     {(src && (
       <NextImage
         alt={alt}
@@ -47,8 +52,6 @@ Image.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
 
-Image.defaultProps = {
-  layout: 'intrinsic',
-};
+Image.defaultProps = {};
 
 export default Image;

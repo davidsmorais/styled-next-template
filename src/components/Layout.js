@@ -3,6 +3,10 @@ import styled from 'styled-components';
 const getPadding = ({ paddingVertical = 0, paddingHorizontal = 0 }) => {
   return `${paddingVertical}px ${paddingHorizontal}px`;
 };
+
+const getMargin = ({ marginVertical = 0, marginHorizontal = 0 }) => {
+  return `${marginVertical}px ${marginHorizontal}px`;
+};
 export const Row = styled.div`
   background: ${({ background, theme }) =>
     theme.colors[background] || 'transparent'};
@@ -13,6 +17,7 @@ export const Row = styled.div`
   flex: ${({ size }) => size || 0};
   ${({ fullWidth }) => fullWidth && 'width: 100%'};
   padding: ${(props) => getPadding(props)};
+  margin: ${(props) => getMargin(props)};
 `;
 
 export const Col = styled.div`
@@ -25,6 +30,7 @@ export const Col = styled.div`
   flex: ${({ size }) => size || 0};
   ${({ fullWidth }) => fullWidth && 'width: 100%'};
   padding: ${(props) => getPadding(props)};
+  margin: ${(props) => getMargin(props)};
 `;
 
 export default { Row, Col };
