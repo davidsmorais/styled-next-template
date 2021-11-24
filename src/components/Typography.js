@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const Title = styled.h1`
   font-family: OldWizard;
@@ -41,7 +42,7 @@ const Subtitle = styled.h2`
 `;
 
 const Heading = styled.h3`
-  font-family: editundo;
+  font-family: 'editundo';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -57,7 +58,7 @@ const Heading = styled.h3`
 `};
 `;
 
-const Body = styled.h3`
+const Body = styled.p`
   font-family: editundo;
   font-style: normal;
   font-weight: normal;
@@ -78,26 +79,30 @@ const Body = styled.h3`
   }
 `;
 
-const Link = ({ as, href, children, color, hoverColor, size, align }) => {
-  const LinkComponent = {
-    Body: <Body />,
-    Heading: <Heading />,
-    Title: <Title />,
-    Subtitle: <Subtitle />,
-  }[as || 'Body'];
+const StyledLink = ({ as, href, children, color, hoverColor, size, align }) => {
+  const renderLinkComponent = {
+    body: (...props) => <Body {...props} />,
+    heading: (...props) => <Heading {...props}>{children}</Heading>,
+    title: (...props) => <Title {...props} />,
+    subtitle: (...props) => <Subtitle {...props} />,
+  }[as.toLowerCase() || 'Body'];
+  console.log(
+    '🚀 ~ file: Typography.js ~ line 89 ~ StyledLink ~ renderLinkComponent',
+    renderLinkComponent,
+    as
+  );
 
   return (
     <Link prefetch href={href} passHref>
-      <LinkComponent
-        color={color}
-        align={align}
-        hoverColor={hoverColor}
-        size={size}
-      >
-        {children}
-      </LinkComponent>
+      {renderLinkComponent({
+        color,
+        align,
+        hoverColor,
+        size,
+        children,
+      })}
     </Link>
   );
 };
 
-export default { Body, Heading, Subtitle, Title, Link };
+export default { Body, Heading, Subtitle, Title, Link: StyledLink };

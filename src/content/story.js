@@ -1,4 +1,4 @@
-const storyByChapters = [
+const enChapters = [
   {
     title: 'In the beginning',
     text: 'When time and space were created the Primordial Creator had two twins. Ori is the creator of galaxies, planets and being. And Tiamat, one sets life in motion, which, ultimately leads to unpredictability, chaos, and death.',
@@ -21,4 +21,9 @@ const storyByChapters = [
   },
 ];
 
-export default storyByChapters;
+const localizedContent = {
+  en: {
+    chapters: enChapters,
+  },
+};
+export default localizedContent;

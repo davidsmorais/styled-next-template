@@ -26,5 +26,3 @@ export const Col = styled.div`
   ${({ fullWidth }) => fullWidth && 'width: 100%'};
   padding: ${(props) => getPadding(props)};
 `;
-
-export default { Row, Col };

@@ -2,9 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "Components/*": ["./src/components/*"],
-      "Content": ["./src/content/*"],
-      "Config": ["./src/config/*"],
+      "Components*": ["./src/components/*"],
+      "Content*": ["./src/content/*"],
+      "Hooks*": ["./src/hooks/*"],
+      "Config*": ["./src/config"],
       "Theme": ["./src/config/theme.js"]
     }
   }

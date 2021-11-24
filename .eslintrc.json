@@ -1,5 +1,22 @@
 {
   "extends": ["eslint:recommended", "next", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      },
+      "alias": {
+        "map": [
+          ["Components/*", "./src/components/*"],
+          ["Content/*", "./src/content/*"],
+          ["Hooks/*", "./src/hooks/*"],
+          ["Config/*", "./src/config"],
+          ["Theme", "./src/config/theme.js"]
+        ],
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
   "rules": {
     "no-undef": "error"
   }
